@@ -1,4 +1,4 @@
-import { SKILL_TEXT, REFERENCE_TEXT, KPI_TRACKER_TEMPLATE } from "./content.js";
+import { SKILL_TEXT, REFERENCE_TEXT, MAIN_ARTICLE_TEXT, KPI_TRACKER_TEMPLATE } from "./content.js";
 
 export type KitOptions = {
   companyContext?: string;
@@ -35,7 +35,10 @@ Don't restart the conversation.`;
     "— SKILL INSTRUCTIONS —",
     SKILL_TEXT.trim(),
     "",
-    "— REFERENCE: TOOLKIT WITHOUT THE TITLE —",
+    "— MAIN ARTICLE: THE CHIEF AGENCY OFFICER (full thesis) —",
+    MAIN_ARTICLE_TEXT.trim(),
+    "",
+    "— REFERENCE: TOOLKIT WITHOUT THE TITLE (this MCP's subarticle) —",
     REFERENCE_TEXT.trim(),
     "",
     "— TEMPLATE: KPI TRACKER —",

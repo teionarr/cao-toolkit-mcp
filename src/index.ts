@@ -3,7 +3,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
 import { buildAdoptionKit } from "./kit.js";
-import { SKILL_TEXT, REFERENCE_TEXT, KPI_TRACKER_TEMPLATE } from "./content.js";
+import { SKILL_TEXT, REFERENCE_TEXT, MAIN_ARTICLE_TEXT, KPI_TRACKER_TEMPLATE } from "./content.js";
 import { getBlock, knownBlockIds } from "./blocks.js";
 import { assessMonthSix, formatVerdict } from "./assessment.js";
 
@@ -181,6 +181,23 @@ export class ToolkitAdoptionMCP extends McpAgent {
       },
       async (uri) => ({
         contents: [{ uri: uri.href, mimeType: "text/markdown", text: SKILL_TEXT }],
+      })
+    );
+
+    this.server.registerResource(
+      "main-article",
+      "reference://chief-agency-officer-main",
+      {
+        title: "The Chief Agency Officer — main article (full thesis)",
+        description:
+          "The full main article on the Chief Agency Officer role and the " +
+          "four-way framework. The 'why' behind every MCP in this family.",
+        mimeType: "text/markdown",
+      },
+      async (uri) => ({
+        contents: [
+          { uri: uri.href, mimeType: "text/markdown", text: MAIN_ARTICLE_TEXT },
+        ],
       })
     );
 
